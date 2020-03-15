@@ -6,8 +6,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
 public class JSON{
-    public ArrayList<Action> parse (String FileName){
-        ArrayList<Action> Actions = new ArrayList<>();
+    public HashSet<Action> parse (String FileName){
+        HashSet<Action> Actions = new HashSet<>();
         Reader in;
         File f = new File(FileName);
         JSONParser p = new JSONParser();
@@ -54,9 +54,10 @@ public class JSON{
             narration = (String) temp.get("narration");
             Action act = new Action(triggers, subjects, consumed, produced, narration);
             Actions.add(act);
-        }
 
+        }
         return Actions;
     }
+
 }
 
